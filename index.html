@@ -17,7 +17,6 @@
         .font-marker {
             font-family: 'Permanent Marker', cursive;
         }
-        /* Neon Effects matching poster */
         .neon-pink-text {
             color: #ff2a85;
             text-shadow: 0 0 8px rgba(255, 42, 133, 0.8), 0 0 18px rgba(255, 42, 133, 0.5);
@@ -30,7 +29,6 @@
             background: radial-gradient(circle, #2a2a2a 0%, #0d0d0d 100%);
             box-shadow: 0 0 25px rgba(255, 42, 133, 0.4);
         }
-        /* Red & White striped barrier around screen */
         .red-white-barrier {
             background: repeating-linear-gradient(
                 45deg,
@@ -40,7 +38,6 @@
                 #ffffff 16px
             );
         }
-        /* Yellow & Black caution tape */
         .caution-tape {
             background: repeating-linear-gradient(
                 -45deg,
@@ -50,7 +47,6 @@
                 #171717 28px
             );
         }
-        /* Seat styling */
         .seat-btn {
             transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
@@ -62,7 +58,6 @@
         .seat-btn:active:not(:disabled) {
             transform: scale(0.95);
         }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -97,7 +92,6 @@
     <header class="border-b border-red-900/60 bg-black/50 backdrop-blur-md sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <!-- School Crest Emblem Representation -->
                 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 via-blue-700 to-amber-900 p-0.5 shadow-lg flex items-center justify-center shrink-0 border border-yellow-300/50">
                     <div class="bg-slate-900/90 w-full h-full rounded-[10px] flex flex-col items-center justify-center text-center p-0.5">
                         <i class="fa-solid fa-graduation-cap text-yellow-400 text-xs"></i>
@@ -118,18 +112,7 @@
                 </div>
             </div>
 
-            <!-- Mode Switcher & Stats -->
             <div class="flex items-center gap-2 sm:gap-3 ml-auto">
-                <div id="cloudStatusBadge" onclick="toggleAdminModal()" class="cursor-pointer flex items-center gap-1.5 bg-zinc-900/90 border border-zinc-700 px-2.5 py-1.5 rounded-xl text-[11px] font-bold text-gray-400 hover:border-emerald-500/50 transition" title="Klik untuk tetapan Google Sheets">
-                    <span id="cloudStatusDot" class="w-2 h-2 rounded-full bg-amber-400"></span>
-                    <span id="cloudStatusText" class="hidden md:inline">Mod Lokal (Set Google Sheet)</span>
-                </div>
-
-                <button onclick="syncFromGoogleSheet(true)" id="quickSyncBtn" class="hidden items-center gap-1.5 bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/50 px-2.5 py-2 rounded-xl text-xs font-bold transition shadow" title="Muat semula data terkini dari Google Sheet">
-                    <i id="quickSyncIcon" class="fa-solid fa-arrows-rotate"></i>
-                    <span class="hidden sm:inline">Sync</span>
-                </button>
-
                 <button onclick="toggleScheduleModal()" class="flex items-center gap-2 bg-cyan-950/80 hover:bg-cyan-900 text-cyan-300 border border-cyan-500/50 px-3 py-2 rounded-xl text-xs font-bold transition shadow">
                     <i class="fa-regular fa-clock text-cyan-400"></i>
                     <span>Jadual Penuh</span>
@@ -141,7 +124,7 @@
                     <strong id="headerAvailableCount" class="text-white font-bold">65/65</strong>
                 </div>
 
-                <button id="toggleAdminBtn" onclick="toggleAdminModal()" class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-3 py-2 rounded-xl text-xs font-bold transition shadow">
+                <button onclick="toggleAdminModal()" class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-3 py-2 rounded-xl text-xs font-bold transition shadow">
                     <i class="fa-solid fa-sliders text-pink-400"></i>
                     <span>Panel Urusetia</span>
                 </button>
@@ -158,13 +141,13 @@
                         <span class="bg-pink-600 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider">Langkah 1</span>
                         <h2 class="text-base sm:text-lg font-black uppercase tracking-wider text-white">Pilih Sesi &amp; Slot Masa Artis</h2>
                     </div>
-                    <p class="text-xs text-gray-300 mt-0.5">Setiap tiket berharga <strong class="text-yellow-300">RM5 Sekali Masuk</strong> (Termasuk Standing Zone). Pilihan <strong class="text-pink-400">RM7 (Got Freebies)</strong> khas untuk <strong class="text-cyan-300">BTS &amp; CORTIS</strong>!</p>
+                    <p class="text-xs text-gray-300 mt-0.5">Harga standard <strong class="text-yellow-300">RM5 Sekali Masuk</strong>. Pilihan pakej <strong class="text-pink-400">RM7 (Got Freebies)</strong> atau <strong class="text-cyan-300">RM5 (No Freebies)</strong> khusus untuk <strong class="text-yellow-300">BTS &amp; CORTIS</strong>!</p>
                 </div>
 
                 <!-- Session Tabs -->
                 <div class="flex bg-black/60 p-1 rounded-2xl border border-zinc-700 shrink-0">
                     <button type="button" id="tabSesi1" onclick="switchSessionFilter('SESI_1')" class="px-3.5 py-2 rounded-xl text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 bg-cyan-500 text-black shadow-lg">
-                        <i class="fa-solid fa-star"></i> Sesi Pertama
+                        <i class="fa-solid fa-star"></i> Sesi Pertama (Utama)
                     </button>
                     <button type="button" id="tabSesi2" onclick="switchSessionFilter('SESI_2')" class="px-3.5 py-2 rounded-xl text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 text-gray-300 hover:text-white">
                         <i class="fa-solid fa-wand-magic-sparkles"></i> Sesi Kedua (Encore)
@@ -173,21 +156,16 @@
             </div>
 
             <!-- Artist Time Slots Grid -->
-            <div id="slotSelectorGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
-                <!-- Populated by JS -->
-            </div>
+            <div id="slotSelectorGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5"></div>
         </div>
     </section>
 
     <!-- Main Content Container -->
     <main class="max-w-7xl w-full mx-auto px-3 sm:px-6 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start flex-grow">
         
-        <!-- LEFT/CENTER: Interactive Venue Map (8 Cols on LG) -->
+        <!-- LEFT/CENTER: Interactive Venue Map -->
         <div class="lg:col-span-8 flex flex-col bg-[#3d070b] border-2 border-red-900/80 rounded-3xl shadow-2xl overflow-hidden relative">
-            
-            <!-- Top Banner inside Map -->
             <div class="bg-gradient-to-b from-black via-black/90 to-transparent pt-4 pb-2 px-4 text-center relative">
-                <!-- Active Slot Indicator Banner -->
                 <div class="flex flex-wrap items-center justify-center gap-2 mb-2">
                     <span id="activeSlotSessionBadge" class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-400/50 text-cyan-300 text-[11px] font-extrabold uppercase">SESI PERTAMA</span>
                     <span id="activeSlotArtistBadge" class="px-3 py-0.5 rounded-full bg-pink-600 text-white text-xs sm:text-sm font-black uppercase tracking-wider shadow">CORTIS</span>
@@ -217,13 +195,10 @@
                 </div>
             </div>
 
-            <!-- Caution Tape Divider Top -->
             <div class="h-3.5 w-full caution-tape border-y border-black shadow"></div>
 
             <!-- VENUE FLOOR PLAN AREA -->
             <div class="relative px-2 sm:px-6 pt-2 pb-8 flex flex-col items-center overflow-x-auto">
-                
-                <!-- SCREEN SECTION WITH RED/WHITE STRIPED BORDER -->
                 <div class="relative flex flex-col items-center mb-6 sm:mb-8">
                     <div class="px-3 pb-3 pt-1 red-white-barrier rounded-b-xl shadow-lg">
                         <div class="bg-[#3d070b] p-2 sm:p-3 rounded-b-lg">
@@ -236,47 +211,36 @@
                     </div>
                 </div>
 
-                <!-- Door Icon (Top Right) -->
-                <div class="hidden sm:flex flex-col items-center absolute right-3 top-6 text-zinc-300/80" title="Pintu Masuk / Keluar">
+                <div class="hidden sm:flex flex-col items-center absolute right-3 top-6 text-zinc-300/80">
                     <div class="w-7 h-12 border-2 border-zinc-400 rounded-l flex items-center justify-start pl-1 bg-black/30">
                         <div class="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
                     </div>
                     <span class="text-[9px] font-bold uppercase tracking-wider mt-1 text-zinc-400">Pintu</span>
                 </div>
 
-                <!-- Technical Operator Badge (Right Side) -->
                 <div class="hidden md:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 bg-[#c8b29b] text-zinc-900 font-extrabold text-[10px] tracking-widest uppercase py-6 px-2 rounded-full shadow-lg border-2 border-amber-200/60" style="writing-mode: vertical-rl; text-orientation: mixed;">
                     TECHNICAL OPERATOR
                 </div>
 
-                <!-- ANGLED SEATING WINGS CONTAINER -->
+                <!-- ANGLED SEATING WINGS -->
                 <div class="w-full max-w-3xl my-2 sm:my-4 px-2 sm:px-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
-                        
-                        <!-- LEFT WING (Tilted Down-Right like Poster) -->
                         <div class="flex flex-col items-center">
                             <div class="text-[11px] font-bold uppercase tracking-widest text-pink-300/80 mb-2 flex items-center gap-1.5">
                                 <i class="fa-solid fa-angles-right"></i> Sayap Kiri (Kerusi 1 - 45)
                             </div>
-                            <div id="leftWingContainer" class="flex flex-col gap-3 sm:gap-4 transform md:rotate-[16deg] transition-transform py-3 px-2">
-                                <!-- Populated by JS -->
-                            </div>
+                            <div id="leftWingContainer" class="flex flex-col gap-3 sm:gap-4 transform md:rotate-[16deg] transition-transform py-3 px-2"></div>
                         </div>
 
-                        <!-- RIGHT WING (Tilted Up-Right like Poster) -->
                         <div class="flex flex-col items-center">
                             <div class="text-[11px] font-bold uppercase tracking-widest text-cyan-300/80 mb-2 flex items-center gap-1.5">
                                 Sayap Kanan (Kerusi 6 - 50) <i class="fa-solid fa-angles-left"></i>
                             </div>
-                            <div id="rightWingContainer" class="flex flex-col gap-3 sm:gap-4 transform md:rotate-[-16deg] transition-transform py-3 px-2">
-                                <!-- Populated by JS -->
-                            </div>
+                            <div id="rightWingContainer" class="flex flex-col gap-3 sm:gap-4 transform md:rotate-[-16deg] transition-transform py-3 px-2"></div>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- Important Notice matching bottom-right of poster -->
                 <div class="w-full max-w-2xl mt-6 bg-black/45 border border-cyan-500/40 rounded-2xl p-3.5 flex items-start sm:items-center gap-3 shadow-inner">
                     <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/50 flex items-center justify-center shrink-0 text-amber-300">
                         <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
@@ -285,20 +249,18 @@
                         <strong class="text-cyan-300">**Makluman Penting:</strong> <em>Lightstick</em> <span class="underline decoration-pink-500 font-semibold">tidak akan disediakan</span> bagi tempat duduk <strong class="text-yellow-300">Kerusi 49, 50 &amp; Zon Berdiri (Standing Zone)</strong>.
                     </p>
                 </div>
-
             </div>
 
-            <!-- Caution Tape Divider Bottom -->
             <div class="h-3.5 w-full caution-tape border-y border-black shadow"></div>
 
-            <!-- STANDING ZONE SECTION (Up to 15 Pax) -->
+            <!-- STANDING ZONE -->
             <div class="bg-[#240406] p-4 sm:p-5 border-t border-red-950">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                     <div>
                         <div class="flex items-center gap-2">
                             <h3 class="text-base sm:text-lg font-black tracking-wider text-cyan-400 uppercase">STANDING ZONE</h3>
                             <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-400/40 px-2 py-0.5 rounded-full font-semibold">
-                                up to 10-15 pax
+                                up to 10-15 pax &bull; RM5
                             </span>
                         </div>
                         <p class="text-xs text-gray-400 mt-0.5">Klik pada ikon penonton di bawah untuk memilih slot berdiri (Tiada Lightstick).</p>
@@ -309,18 +271,12 @@
                     </div>
                 </div>
 
-                <!-- 15 Standing Pax Silhouettes -->
-                <div id="standingZoneContainer" class="grid grid-cols-5 sm:grid-cols-15 gap-2 pt-2">
-                    <!-- Populated by JS -->
-                </div>
+                <div id="standingZoneContainer" class="grid grid-cols-5 sm:grid-cols-15 gap-2 pt-2"></div>
             </div>
-
         </div>
 
-        <!-- RIGHT SIDE: Booking Summary & Checkout Form (4 Cols on LG) -->
+        <!-- RIGHT SIDE: Booking Summary & Checkout Form -->
         <div class="lg:col-span-4 flex flex-col gap-5 sticky top-20">
-            
-            <!-- Pricing & Selection Card -->
             <div class="bg-zinc-900/90 border border-zinc-700/80 rounded-3xl p-5 shadow-2xl backdrop-blur-md">
                 <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-3">
                     <div class="flex items-center gap-2">
@@ -332,7 +288,6 @@
                     </button>
                 </div>
 
-                <!-- Selected Slot Summary Box -->
                 <div class="bg-black/60 border border-zinc-700/80 rounded-2xl p-3 mb-4">
                     <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-gray-400">
                         <span id="summarySessionLabel">SESI PERTAMA (UTAMA)</span>
@@ -344,12 +299,8 @@
                     </div>
                 </div>
 
-                <!-- Package Tier Choice (Shown for BTS & CORTIS, or Standard RM5 Info for others) -->
-                <div id="tierSelectionBox" class="mb-4">
-                    <!-- Populated dynamically by JS based on whether artist has RM7/RM5 option -->
-                </div>
+                <div id="tierSelectionBox" class="mb-4"></div>
 
-                <!-- Selected Seats List -->
                 <div class="mb-4">
                     <label class="text-xs font-bold uppercase text-gray-400 tracking-wider block mb-2">Tempat Duduk Dipilih (<span id="selectedCount">0</span>)</label>
                     <div id="selectedSeatsList" class="min-h-[68px] max-h-44 overflow-y-auto bg-black/50 border border-zinc-800 rounded-2xl p-3 flex flex-wrap gap-2 items-center justify-center text-xs text-gray-500">
@@ -357,7 +308,6 @@
                     </div>
                 </div>
 
-                <!-- Lightstick Dynamic Warning Banner -->
                 <div id="noLightstickAlert" class="hidden mb-4 bg-amber-500/15 border border-amber-400/60 text-amber-200 rounded-2xl p-3 text-xs flex items-start gap-2.5 animate-pulse">
                     <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base mt-0.5"></i>
                     <div>
@@ -366,7 +316,6 @@
                     </div>
                 </div>
 
-                <!-- Total Calculation -->
                 <div class="bg-gradient-to-r from-pink-950/60 to-purple-950/60 border border-pink-500/30 rounded-2xl p-3.5 mb-5 flex items-center justify-between">
                     <div>
                         <span class="text-xs text-pink-200 block">Jumlah Bayaran</span>
@@ -375,24 +324,13 @@
                     <div class="text-2xl font-black text-white tracking-tight" id="totalPriceDisplay">RM 0.00</div>
                 </div>
 
-                <!-- Customer Details Form -->
+                <!-- Borang Tempahan: Hanya Nama Penuh Penonton Diwajibkan -->
                 <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-3">
                     <div>
                         <label class="text-xs font-bold text-gray-300 block mb-1">Nama Penuh Penonton <span class="text-pink-500">*</span></label>
                         <div class="relative">
                             <i class="fa-solid fa-user absolute left-3.5 top-3 text-gray-500 text-xs"></i>
                             <input type="text" id="custName" required placeholder="Cth: Ahmad Albab" class="w-full bg-zinc-800 border border-zinc-700 focus:border-pink-500 rounded-xl pl-9 pr-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-2.5">
-                        <div>
-                            <label class="text-xs font-bold text-gray-300 block mb-1">Kelas / Kategori <span class="text-[10px] text-gray-500 font-normal">(Pilihan)</span></label>
-                            <input type="text" id="custClass" placeholder="Cth: 5 Sains / Guru" class="w-full bg-zinc-800 border border-zinc-700 focus:border-pink-500 rounded-xl px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none">
-                        </div>
-                        <div>
-                            <label class="text-xs font-bold text-gray-300 block mb-1">No. Telefon <span class="text-[10px] text-gray-500 font-normal">(Pilihan)</span></label>
-                            <input type="tel" id="custPhone" placeholder="01X-XXXXXXX" class="w-full bg-zinc-800 border border-zinc-700 focus:border-pink-500 rounded-xl px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none">
                         </div>
                     </div>
 
@@ -403,11 +341,10 @@
                 </form>
             </div>
 
-            <!-- Quick Recent Bookings / Verification Search -->
             <div class="bg-zinc-900/75 border border-zinc-800 rounded-2xl p-4 text-xs">
                 <div class="flex items-center justify-between mb-2">
                     <span class="font-bold text-gray-300 uppercase tracking-wider flex items-center gap-1.5">
-                        <i class="fa-solid fa-Qrcode text-cyan-400"></i> Semak Tiket Sedia Ada
+                        <i class="fa-solid fa-qrcode text-cyan-400"></i> Semak Tiket Sedia Ada
                     </span>
                     <span id="totalBookingsBadge" class="bg-zinc-800 text-gray-300 px-2 py-0.5 rounded font-semibold">0 Tempahan</span>
                 </div>
@@ -419,26 +356,20 @@
                 </div>
                 <div id="searchResultBox" class="mt-2 space-y-1.5 max-h-40 overflow-y-auto"></div>
             </div>
-
         </div>
-
     </main>
 
     <!-- Footer -->
     <footer class="border-t border-red-950/80 bg-black/60 py-4 text-center text-xs text-gray-400 mt-8">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
             <p>&copy; Sistem E-Tiket Konsert Mini &bull; <strong>SMK Datuk Peter Mojuntin, Penampang</strong></p>
-            <p class="text-gray-500">Direka khas mengikut Pelan Lantai Rasmi Virtual Concert Experience</p>
+            <p class="text-gray-500">24 Oktober 2026 (Sabtu) &bull; Virtual Concert Experience</p>
         </div>
     </footer>
 
-    <!-- ==========================================
-         E-TICKET MODAL (Shown after booking)
-    =========================================== -->
+    <!-- E-TICKET MODAL -->
     <div id="ticketModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4 overflow-y-auto">
         <div class="max-w-md w-full bg-zinc-900 border-2 border-pink-500/60 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(255,42,133,0.3)] my-8">
-            
-            <!-- Printable Ticket Section -->
             <div id="printableTicket" class="bg-gradient-to-b from-[#2b0509] to-[#120204] text-white p-6 relative">
                 <div class="flex items-center justify-between border-b border-white/15 pb-4 mb-4">
                     <div>
@@ -447,7 +378,7 @@
                             <span class="text-cyan-400">VIRTUAL</span> <span class="text-pink-500">CONCERT</span>
                         </h3>
                         <span id="modalPackageBadge" class="text-[10px] bg-pink-600/30 border border-pink-500/50 text-pink-200 px-2 py-0.5 rounded font-semibold inline-block mt-1">
-                            E-TIKET RASMI &bull; SEKALI MASUK
+                            E-TIKET RASMI
                         </span>
                     </div>
                     <div class="text-right">
@@ -456,64 +387,47 @@
                     </div>
                 </div>
 
-                <!-- Artist & Time Slot Highlight -->
                 <div class="bg-gradient-to-r from-pink-950/70 via-purple-950/60 to-cyan-950/70 border border-pink-500/40 rounded-2xl p-3 mb-4 flex items-center justify-between">
                     <div>
                         <span id="modalSessionName" class="text-[10px] font-extrabold uppercase tracking-wider text-cyan-300 block">SESI PERTAMA</span>
-                        <strong id="modalArtistName" class="text-lg font-black text-white uppercase tracking-wide block leading-tight">BTS</strong>
+                        <strong id="modalArtistName" class="text-lg font-black text-white uppercase tracking-wide block leading-tight">CORTIS</strong>
                     </div>
                     <div class="text-right">
                         <span class="text-[10px] text-gray-300 block">Slot Masa Tayangan</span>
-                        <span id="modalSlotTime" class="text-xs font-extrabold text-yellow-300 bg-black/50 px-2.5 py-1 rounded-lg border border-yellow-400/30 inline-block mt-0.5">08:30 AM - 08:55 AM</span>
+                        <span id="modalSlotTime" class="text-xs font-extrabold text-yellow-300 bg-black/50 px-2.5 py-1 rounded-lg border border-yellow-400/30 inline-block mt-0.5">07:30 AM - 07:55 AM</span>
                     </div>
                 </div>
 
-                <!-- Attendee Info -->
-                <div class="grid grid-cols-2 gap-3 bg-black/40 rounded-2xl p-3.5 border border-white/10 mb-4 text-xs">
+                <div class="bg-black/40 rounded-2xl p-3.5 border border-white/10 mb-4 text-xs space-y-2">
                     <div>
-                        <span class="text-gray-400 block text-[10px] uppercase">Nama Penonton</span>
+                        <span class="text-gray-400 block text-[10px] uppercase">Nama Penuh Penonton</span>
                         <strong id="modalCustName" class="text-white text-sm truncate block">-</strong>
                     </div>
-                    <div>
-                        <span class="text-gray-400 block text-[10px] uppercase">Kelas / Kategori</span>
-                        <strong id="modalCustClass" class="text-white text-sm block">-</strong>
-                    </div>
-                    <div>
-                        <span class="text-gray-400 block text-[10px] uppercase">No. Telefon</span>
-                        <strong id="modalCustPhone" class="text-gray-200 block">-</strong>
-                    </div>
-                    <div>
-                        <span class="text-gray-400 block text-[10px] uppercase">Jumlah Bayaran</span>
-                        <strong id="modalTotalPaid" class="text-emerald-400 text-sm font-black block">RM 0.00</strong>
+                    <div class="flex justify-between items-center pt-2 border-t border-white/10">
+                        <span class="text-gray-400 text-[10px] uppercase">Jumlah Bayaran</span>
+                        <strong id="modalTotalPaid" class="text-emerald-400 text-sm font-black">RM 0.00</strong>
                     </div>
                 </div>
 
-                <!-- Assigned Seats Box -->
                 <div class="mb-4">
                     <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Nombor Tempat Duduk / Zon:</span>
                     <div id="modalSeatsBadges" class="flex flex-wrap gap-1.5"></div>
                 </div>
 
-                <!-- Lightstick Entitlement Status -->
-                <div id="modalLightstickStatus" class="rounded-xl p-3 text-xs mb-4 border flex items-center gap-2.5">
-                    <!-- Dynamic content -->
-                </div>
+                <div id="modalLightstickStatus" class="rounded-xl p-3 text-xs mb-4 border flex items-center gap-2.5"></div>
 
-                <!-- Simulated QR Code & Verification -->
                 <div class="border-t border-dashed border-white/20 pt-4 flex items-center justify-between gap-4">
                     <div class="text-[11px] text-gray-300 space-y-1">
                         <p class="font-bold text-white"><i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> Tempahan Disahkan!</p>
                         <p class="text-gray-400 text-[10px]">Sila tunjukkan e-tiket ini kepada urusetia di pintu masuk dewan.</p>
                         <p id="modalTimestamp" class="text-[9px] text-gray-500 font-mono"></p>
                     </div>
-                    <!-- Dynamic SVG QR representation -->
                     <div class="bg-white p-2 rounded-xl shrink-0 shadow">
                         <svg id="modalQrSvg" class="w-16 h-16" viewBox="0 0 100 100" shape-rendering="crispEdges"></svg>
                     </div>
                 </div>
             </div>
 
-            <!-- Modal Footer Buttons -->
             <div class="bg-zinc-950 px-6 py-4 flex items-center justify-between gap-3 border-t border-zinc-800">
                 <button onclick="window.print()" class="flex-1 bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition">
                     <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
@@ -525,9 +439,7 @@
         </div>
     </div>
 
-    <!-- ==========================================
-         FULL CONCERT SCHEDULE MODAL (JADUAL PENUH)
-    =========================================== -->
+    <!-- SCHEDULE MODAL -->
     <div id="scheduleModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden items-center justify-center p-4 overflow-y-auto">
         <div class="max-w-5xl w-full bg-zinc-950 border-2 border-cyan-500/50 rounded-3xl overflow-hidden shadow-2xl my-8">
             <div class="bg-gradient-to-r from-zinc-900 via-[#250409] to-zinc-900 px-6 py-4 border-b border-zinc-800 flex items-center justify-between">
@@ -543,7 +455,6 @@
             </div>
 
             <div class="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-2 gap-6 max-h-[80vh] overflow-y-auto">
-                <!-- SESI PERTAMA -->
                 <div class="bg-[#091326] border-2 border-cyan-400/70 rounded-2xl p-4 shadow-[0_0_25px_rgba(0,240,255,0.15)]">
                     <div class="flex items-center gap-2 border-b border-cyan-500/30 pb-3 mb-3">
                         <i class="fa-solid fa-star text-yellow-400 text-lg"></i>
@@ -559,7 +470,6 @@
                     </div>
                 </div>
 
-                <!-- SESI KEDUA -->
                 <div class="bg-[#1f0622] border-2 border-pink-500/70 rounded-2xl p-4 shadow-[0_0_25px_rgba(255,42,133,0.15)]">
                     <div class="flex items-center gap-2 border-b border-pink-500/30 pb-3 mb-3">
                         <i class="fa-solid fa-star text-pink-400 text-lg"></i>
@@ -574,15 +484,13 @@
         </div>
     </div>
 
-    <!-- ==========================================
-         ADMIN / URUSETIA PANEL MODAL
-    =========================================== -->
+    <!-- ADMIN / URUSETIA PANEL MODAL -->
     <div id="adminModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4 overflow-y-auto">
         <div class="max-w-4xl w-full bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden shadow-2xl my-8">
             <div class="bg-zinc-950 px-6 py-4 border-b border-zinc-800 flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
                     <i class="fa-solid fa-user-shield text-pink-500 text-lg"></i>
-                    <h3 class="font-extrabold text-base uppercase tracking-wider">Panel Pengurusan Urusetia Konsert</h3>
+                    <h3 class="font-extrabold text-base uppercase tracking-wider">Panel Pengurusan Urusetia</h3>
                 </div>
                 <button onclick="toggleAdminModal()" class="text-gray-400 hover:text-white w-8 h-8 rounded-lg bg-zinc-800 flex items-center justify-center">
                     <i class="fa-solid fa-xmark"></i>
@@ -590,8 +498,6 @@
             </div>
 
             <div class="p-6 space-y-6 max-h-[80vh] overflow-y-auto">
-                
-                <!-- Stats Overview -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     <div class="bg-zinc-800/70 border border-zinc-700 p-3.5 rounded-2xl">
                         <span class="text-[11px] text-gray-400 block">Jumlah Kutipan</span>
@@ -611,100 +517,6 @@
                     </div>
                 </div>
 
-                <!-- GOOGLE SHEETS & GITHUB INTEGRATION SECTION -->
-                <div class="bg-gradient-to-br from-emerald-950/50 via-zinc-900 to-cyan-950/40 border-2 border-emerald-500/50 rounded-2xl p-4 sm:p-5 shadow-lg">
-                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <div class="flex items-center gap-2">
-                            <span class="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center text-emerald-300">
-                                <i class="fa-solid fa-table"></i>
-                            </span>
-                            <div>
-                                <h4 class="text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-300">
-                                    Integrasi Google Sheets &amp; GitHub Pages
-                                </h4>
-                                <p class="text-[11px] text-gray-300">Semua tempahan akan masuk terus ke Google Sheet &amp; kerusi disegerakkan secara automatik.</p>
-                            </div>
-                        </div>
-                        <button type="button" onclick="toggleAppsScriptGuide()" class="bg-zinc-800 hover:bg-zinc-700 border border-emerald-400/40 text-emerald-300 text-xs font-bold px-3 py-1.5 rounded-xl transition flex items-center gap-1.5">
-                            <i class="fa-solid fa-code"></i> Lihat Kod Apps Script &amp; Panduan
-                        </button>
-                    </div>
-
-                    <div class="space-y-3">
-                        <div>
-                            <label class="text-xs font-bold text-gray-200 block mb-1">
-                                Google Apps Script Web App URL (<code class="text-emerald-300">.../exec</code>)
-                            </label>
-                            <div class="flex flex-col sm:flex-row gap-2">
-                                <input type="url" id="gasWebhookInput" placeholder="https://script.google.com/macros/s/AKfycb.../exec" class="flex-1 bg-black/60 border border-zinc-700 focus:border-emerald-400 rounded-xl px-3.5 py-2 text-xs text-white placeholder-gray-500 focus:outline-none font-mono">
-                                <button type="button" onclick="saveGasWebhookUrl()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold px-4 py-2 rounded-xl transition shrink-0 flex items-center justify-center gap-1.5">
-                                    <i class="fa-solid fa-plug-circle-check"></i> Simpan &amp; Sambung
-                                </button>
-                                <button type="button" onclick="syncFromGoogleSheet(true)" class="bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition shrink-0 flex items-center justify-center gap-1.5">
-                                    <i class="fa-solid fa-rotate"></i> Tarik Data Sheet
-                                </button>
-                            </div>
-                            <p class="text-[10px] text-gray-400 mt-1.5">
-                                💡 <strong>Tip untuk GitHub Pages:</strong> Anda juga boleh menampal URL <code class="text-cyan-300">exec</code> terus ke dalam pembolehubah <code class="text-yellow-300">DEFAULT_GOOGLE_SCRIPT_URL</code> di dalam kod <code class="text-pink-300">index.html</code> supaya semua pengunjung automatik tersambung ke Google Sheet yang sama.
-                            </p>
-                        </div>
-
-                        <!-- Collapsible Apps Script Code & Setup Instructions -->
-                        <div id="appsScriptGuideBox" class="hidden mt-3 pt-3 border-t border-white/10 space-y-3 text-xs">
-                            <div class="bg-black/60 border border-zinc-700 rounded-xl p-3.5 space-y-2 text-gray-200">
-                                <strong class="text-yellow-300 block uppercase tracking-wider text-[11px]"><i class="fa-solid fa-list-check mr-1"></i> Langkah Setup Mudah (3 Minit):</strong>
-                                <ol class="list-decimal list-inside space-y-1 text-[11px] text-gray-300 leading-relaxed">
-                                    <li>Buka <strong>Google Sheets</strong> baharu di Google Drive anda.</li>
-                                    <li>Klik menu <strong>Extensions &rarr; Apps Script</strong>.</li>
-                                    <li>Padam kod sedia ada di dalam <code class="text-pink-300">Code.gs</code> dan <strong>Tampal (Paste)</strong> kod di bawah, kemudian tekan ikon <strong>Save (💾)</strong>.</li>
-                                    <li>Klik butang biru <strong>Deploy &rarr; New deployment</strong> di penjuru atas kanan.</li>
-                                    <li>Pilih jenis <strong>Web app</strong>:
-                                        <ul class="list-disc list-inside pl-4 text-cyan-300">
-                                            <li><strong>Execute as:</strong> Me (Email anda)</li>
-                                            <li><strong>Who has access:</strong> Anyone (Sangat Penting!)</li>
-                                        </ul>
-                                    </li>
-                                    <li>Klik <strong>Deploy</strong>, berikan kebenaran akses (*Authorize access*), dan salin <strong>Web app URL</strong> (<code class="text-emerald-300">https://script.google.com/macros/s/.../exec</code>) ke dalam kotak di atas!</li>
-                                    <li><em>(Pilihan)</em> Jika anda mahu buka terus dari Apps Script tanpa GitHub, buat fail HTML bernama <code class="text-yellow-300">Index.html</code> di dalam Apps Script dan tampal keseluruhan kod laman web ini.</li>
-                                </ol>
-                            </div>
-
-                            <div class="relative">
-                                <div class="flex items-center justify-between bg-zinc-950 px-3 py-2 rounded-t-xl border border-b-0 border-zinc-700">
-                                    <span class="font-mono text-[11px] text-emerald-400 font-bold">Code.gs (Google Apps Script)</span>
-                                    <button type="button" onclick="copyAppsScriptCode()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-bold px-3 py-1 rounded-lg transition flex items-center gap-1.5">
-                                        <i class="fa-regular fa-copy"></i> Salin Kod Code.gs
-                                    </button>
-                                </div>
-                                <textarea id="appsScriptCodeTextarea" readonly rows="10" class="w-full bg-black/90 text-emerald-300 font-mono text-[11px] p-3 rounded-b-xl border border-zinc-700 focus:outline-none"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Price Settings -->
-                <div class="bg-black/40 border border-zinc-800 rounded-2xl p-4">
-                    <h4 class="text-xs font-bold uppercase tracking-wider text-yellow-400 mb-3">
-                        <i class="fa-solid fa-tags mr-1"></i> Tetapan Harga Tiket Mengikut Poster (RM)
-                    </h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
-                        <div>
-                            <label class="text-xs text-gray-300 block mb-1">Harga Tiket Biasa / Tanpa Freebies (Semua Kerusi &amp; Standing)</label>
-                            <input type="number" id="inputPriceStandard" min="0" step="1" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-3 py-2 text-sm text-white">
-                        </div>
-                        <div>
-                            <label class="text-xs text-pink-300 block mb-1">Harga Pakej Freebies (Khusus BTS &amp; CORTIS)</label>
-                            <input type="number" id="inputPriceFreebies" min="0" step="1" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-3 py-2 text-sm text-white">
-                        </div>
-                    </div>
-                    <div class="mt-3 flex justify-end">
-                        <button onclick="savePriceSettings()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition">
-                            <i class="fa-solid fa-floppy-disk mr-1"></i> Kemaskini Harga
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Bookings Table & Actions -->
                 <div>
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300">
@@ -726,67 +538,81 @@
                                 <tr>
                                     <th class="py-3 px-3">ID</th>
                                     <th class="py-3 px-3">Slot Artis &amp; Masa</th>
-                                    <th class="py-3 px-3">Nama &amp; Kelas</th>
+                                    <th class="py-3 px-3">Nama Penonton</th>
                                     <th class="py-3 px-3">Kerusi / Zon</th>
                                     <th class="py-3 px-3">Pakej / LS</th>
                                     <th class="py-3 px-3">Bayaran</th>
                                     <th class="py-3 px-3 text-right">Tindakan</th>
                                 </tr>
                             </thead>
-                            <tbody id="adminBookingsTableBody" class="divide-y divide-zinc-800 bg-zinc-900/50">
-                                <!-- Populated by JS -->
-                            </tbody>
+                            <tbody id="adminBookingsTableBody" class="divide-y divide-zinc-800 bg-zinc-900/50"></tbody>
                         </table>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <!-- Custom Toast Notification -->
+    <!-- Toast Notification -->
     <div id="toastNotice" class="fixed bottom-5 right-5 bg-zinc-900 border-2 border-pink-500 text-white px-4 py-3 rounded-2xl shadow-2xl z-50 hidden items-center gap-3 text-xs font-semibold">
         <i id="toastIcon" class="fa-solid fa-circle-info text-pink-400 text-base"></i>
         <span id="toastMessage">Mesej</span>
     </div>
 
     <script>
-        // =====================================================
-        // GOOGLE SHEETS / APPS SCRIPT CONFIGURATION
-        // =====================================================
-        // PENTING UNTUK GITHUB PAGES:
-        // Jika anda sudah dapat URL Web App Google Apps Script (.../exec),
-        // anda boleh tampal terus di dalam tanda petik di bawah supaya semua
-        // peranti/pengguna terus bersambung ke Google Sheet secara automatik:
-        const DEFAULT_GOOGLE_SCRIPT_URL = ""; 
+        // Data Jadual Konsert Mengikut Poster Rasmi 24 Oktober 2026
+        const CONCERT_SLOTS = [
+            // SESI PERTAMA (PERSEMBAHAN UTAMA)
+            { id: 'S1_CORTIS', sessionKey: 'SESI_1', sessionName: 'Sesi Pertama (Persembahan Utama)', artist: 'CORTIS', time: '07:30 AM – 07:55 AM', prepAfter: 'Persiapan & Peralihan Pentas (5 minit)', hasFreebiesOption: true },
+            { id: 'S1_MAHALINI', sessionKey: 'SESI_1', sessionName: 'Sesi Pertama (Persembahan Utama)', artist: 'MAHALINI', time: '08:00 AM – 08:25 AM', prepAfter: 'Persiapan & Peralihan Pentas (5 minit)', hasFreebiesOption: false },
+            { id: 'S1_BTS', sessionKey: 'SESI_1', sessionName: 'Sesi Pertama (Persembahan Utama)', artist: 'BTS', time: '08:30 AM – 08:55 AM', prepAfter: 'Persiapan & Peralihan Pentas (5 minit)', hasFreebiesOption: true },
+            { id: 'S1_SHEILA', sessionKey: 'SESI_1', sessionName: 'Sesi Pertama (Persembahan Utama)', artist: 'SHEILA ON 7', time: '08:30 AM – 09:55 AM', prepAfter: 'Rehat & Persiapan (5 minit)', hasFreebiesOption: false },
+            { id: 'S1_BLACKPINK', sessionKey: 'SESI_1', sessionName: 'Sesi Pertama (Persembahan Utama)', artist: 'BLACKPINK', time: '09:25 AM – 09:30 AM', prepAfter: 'Rehat & Persiapan (5 minit)', hasFreebiesOption: false },
+            { id: 'S1_HUJAN', sessionKey: 'SESI_1', sessionName: 'Sesi Pertama (Persembahan Utama)', artist: 'HUJAN', time: '09:55 AM – 10:00 AM', prepAfter: 'Persiapan & Peralihan (5 minit)', hasFreebiesOption: false },
+            { id: 'S1_OLIVIA', sessionKey: 'SESI_1', sessionName: 'Sesi Pertama (Persembahan Utama)', artist: 'OLIVIA RODRIGO', time: '10:25 AM – 10:30 AM', prepAfter: 'Rehat & Persiapan (5 minit)', hasFreebiesOption: false },
+            { id: 'S1_BIGBANG', sessionKey: 'SESI_1', sessionName: 'Sesi Pertama (Persembahan Utama)', artist: 'BIGBANG', time: '10:55 AM – 11:00 AM', prepAfter: 'Persiapan Rehat Tengah Hari (5 minit)', hasFreebiesOption: false },
 
-        let googleScriptUrl = DEFAULT_GOOGLE_SCRIPT_URL.trim();
+            // SESI KEDUA (ENCORE CONCERT)
+            { id: 'S2_BTS', sessionKey: 'SESI_2', sessionName: 'Sesi Kedua (Encore Concert)', artist: 'BTS', time: '12:00 PM – 12:25 PM', prepAfter: 'Rehat & Persiapan (5 minit)', hasFreebiesOption: true },
+            { id: 'S2_SHEILA', sessionKey: 'SESI_2', sessionName: 'Sesi Kedua (Encore Concert)', artist: 'SHEILA ON 7', time: '12:30 PM – 12:55 PM', prepAfter: 'Rehat & Persiapan (5 minit)', hasFreebiesOption: false },
+            { id: 'S2_BLACKPINK', sessionKey: 'SESI_2', sessionName: 'Sesi Kedua (Encore Concert)', artist: 'BLACKPINK', time: '01:00 PM – 01:25 PM', prepAfter: 'Rehat & Persiapan (5 minit)', hasFreebiesOption: false },
+            { id: 'S2_HUJAN', sessionKey: 'SESI_2', sessionName: 'Sesi Kedua (Encore Concert)', artist: 'HUJAN', time: '01:30 PM – 01:55 PM', prepAfter: 'Rehat & Persiapan (5 minit)', hasFreebiesOption: false },
+            { id: 'S2_OLIVIA', sessionKey: 'SESI_2', sessionName: 'Sesi Kedua (Encore Concert)', artist: 'OLIVIA RODRIGO', time: '02:00 PM – 02:25 PM', prepAfter: 'Rehat & Persiapan (5 minit)', hasFreebiesOption: false },
+            { id: 'S2_BIGBANG', sessionKey: 'SESI_2', sessionName: 'Sesi Kedua (Encore Concert)', artist: 'BIGBANG', time: '02:30 PM – 02:55 PM', prepAfter: 'Persiapan 15 minit', hasFreebiesOption: false },
+            { id: 'S2_TENXI', sessionKey: 'SESI_2', sessionName: 'Sesi Kedua (Encore Concert)', artist: 'TENXI NAYKILLA JEMSI', time: '03:00 PM – 03:20 PM', prepAfter: 'Penutup Konsert', isNew: true, hasFreebiesOption: false }
+        ];
 
-        // Application State
-        let pricing = {
-            standard: 5,  // RM5 Sekali Masuk (Semua Kerusi & Standing Zone, atau BTS/Cortis No Freebies)
-            freebies: 7   // RM7 (BTS & CORTIS Got Freebies)
-        };
+        const LEFT_WING_ROWS = [
+            [5, 4, 3, 2, 1],
+            [15, 14, 13, 12, 11],
+            [25, 24, 23, 22, 21],
+            [35, 34, 33, 32, 31],
+            [45, 44, 43, 42, 41]
+        ];
 
+        const RIGHT_WING_ROWS = [
+            [6, 7, 8, 9, 10],
+            [16, 17, 18, 19, 20],
+            [26, 27, 28, 29, 30],
+            [36, 37, 38, 39, 40],
+            [46, 47, 48, 49, 50]
+        ];
+
+        const STANDING_SLOTS = ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11', 'S12', 'S13', 'S14', 'S15'];
+        const NO_LIGHTSTICK_SEATS = new Set(['49', '50', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11', 'S12', 'S13', 'S14', 'S15']);
+
+        let pricing = { standard: 5, freebies: 7 };
         let activeSessionFilter = 'SESI_1';
         let activeSlotId = 'S1_CORTIS';
-        let selectedPackageTier = 'RM7_FREEBIES'; // 'RM7_FREEBIES' or 'RM5_STANDARD'
-
-        let selectedSeats = new Set(); // Stores IDs like '1', '49', 'S1' for current active slot
-        let bookings = []; // List of confirmed booking objects
-        // Map of slotId -> Map(seatId -> bookingObject) so each artist slot has 65 seats capacity
+        let selectedPackageTier = 'RM7_FREEBIES';
+        let selectedSeats = new Set();
+        let bookings = [];
         let occupiedBySlotMap = new Map();
 
-        // =====================================================
-        // INITIALIZATION
-        // =====================================================
         window.onload = function () {
             CONCERT_SLOTS.forEach(slot => {
                 occupiedBySlotMap.set(slot.id, new Map());
             });
-
-            populateAppsScriptTemplate();
-            updateCloudStatusBadge();
 
             renderSlotSelector();
             renderScheduleModalContent();
@@ -794,350 +620,7 @@
             renderVenueMap();
             updateSelectionSummary();
             updateAdminDashboard();
-
-            // Jika dihoskan terus di dalam Google Apps Script (HtmlService) atau ada URL Web App:
-            if (typeof google !== 'undefined' && google.script && google.script.run) {
-                syncFromGoogleSheet(false);
-            } else if (googleScriptUrl) {
-                syncFromGoogleSheet(false);
-            }
         };
-
-        // =====================================================
-        // GOOGLE SHEETS SYNC & WEBHOOK LOGIC
-        // =====================================================
-        function isRunningInsideGasIframe() {
-            return (typeof google !== 'undefined' && google.script && google.script.run);
-        }
-
-        function updateCloudStatusBadge(state = 'idle') {
-            const dot = document.getElementById('cloudStatusDot');
-            const text = document.getElementById('cloudStatusText');
-            const quickSyncBtn = document.getElementById('quickSyncBtn');
-            const inputEl = document.getElementById('gasWebhookInput');
-
-            if (inputEl && googleScriptUrl) {
-                inputEl.value = googleScriptUrl;
-            }
-
-            if (isRunningInsideGasIframe() || googleScriptUrl) {
-                quickSyncBtn.classList.remove('hidden');
-                quickSyncBtn.classList.add('flex');
-                if (state === 'syncing') {
-                    dot.className = 'w-2 h-2 rounded-full bg-cyan-400 animate-ping';
-                    text.textContent = 'Menyegerak Google Sheet...';
-                } else if (state === 'error') {
-                    dot.className = 'w-2 h-2 rounded-full bg-red-500';
-                    text.textContent = 'Ralat Sambungan Sheet';
-                } else {
-                    dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
-                    text.textContent = 'Google Sheet Aktif';
-                }
-            } else {
-                quickSyncBtn.classList.add('hidden');
-                quickSyncBtn.classList.remove('flex');
-                dot.className = 'w-2 h-2 rounded-full bg-amber-400';
-                text.textContent = 'Mod Lokal (Set Google Sheet)';
-            }
-        }
-
-        function saveGasWebhookUrl() {
-            const val = document.getElementById('gasWebhookInput').value.trim();
-            googleScriptUrl = val;
-            updateCloudStatusBadge();
-            if (val) {
-                showToast('URL Google Apps Script disimpan! Menarik data terkini...', 'success');
-                syncFromGoogleSheet(true);
-            } else {
-                showToast('Ditukar kepada Mod Lokal.', 'warning');
-            }
-        }
-
-        function rebuildOccupiedMapFromBookings() {
-            CONCERT_SLOTS.forEach(slot => {
-                occupiedBySlotMap.set(slot.id, new Map());
-            });
-            bookings.forEach(b => {
-                const slotMap = occupiedBySlotMap.get(b.slotId);
-                if (slotMap && Array.isArray(b.seats)) {
-                    b.seats.forEach(seatId => {
-                        slotMap.set(String(seatId).trim(), b);
-                    });
-                }
-            });
-        }
-
-        async function syncFromGoogleSheet(showNotification = false) {
-            const icon = document.getElementById('quickSyncIcon');
-            if (icon) icon.classList.add('fa-spin');
-            updateCloudStatusBadge('syncing');
-
-            // 1. Jika dibuka terus sebagai Google Apps Script Web App
-            if (isRunningInsideGasIframe()) {
-                google.script.run
-                    .withSuccessHandler(function (res) {
-                        if (icon) icon.classList.remove('fa-spin');
-                        if (res && Array.isArray(res.bookings)) {
-                            bookings = res.bookings;
-                            rebuildOccupiedMapFromBookings();
-                            renderSlotSelector();
-                            renderVenueMap();
-                            updateSelectionSummary();
-                            updateAdminDashboard();
-                            updateCloudStatusBadge('idle');
-                            if (showNotification) showToast(`Berjaya tarik ${bookings.length} tempahan dari Google Sheet!`, 'success');
-                        }
-                    })
-                    .withFailureHandler(function (err) {
-                        if (icon) icon.classList.remove('fa-spin');
-                        updateCloudStatusBadge('error');
-                        if (showNotification) showToast('Gagal tarik data dari Apps Script.', 'warning');
-                    })
-                    .getAllBookingsFromSheet();
-                return;
-            }
-
-            // 2. Jika dibuka dari GitHub Pages / HTML menggunakan Fetch URL
-            if (!googleScriptUrl) {
-                if (icon) icon.classList.remove('fa-spin');
-                updateCloudStatusBadge('idle');
-                if (showNotification) showToast('Sila masukkan URL Web App Google Apps Script di Panel Urusetia dahulu.', 'warning');
-                return;
-            }
-
-            try {
-                const response = await fetch(`${googleScriptUrl}?action=getBookings&t=${Date.now()}`, {
-                    method: 'GET',
-                    redirect: 'follow'
-                });
-                const data = await response.json();
-                if (data && Array.isArray(data.bookings)) {
-                    bookings = data.bookings;
-                    rebuildOccupiedMapFromBookings();
-                    renderSlotSelector();
-                    renderVenueMap();
-                    updateSelectionSummary();
-                    updateAdminDashboard();
-                    updateCloudStatusBadge('idle');
-                    if (showNotification) showToast(`Disegerakkan! ${bookings.length} rekod dimuat turun dari Google Sheet.`, 'success');
-                } else {
-                    updateCloudStatusBadge('idle');
-                }
-            } catch (err) {
-                console.error('Ralat Sync Google Sheet:', err);
-                updateCloudStatusBadge('error');
-                if (showNotification) showToast('Gagal menghubungi Google Sheet. Pastikan akses Web App diset kepada "Anyone".', 'warning');
-            } finally {
-                if (icon) icon.classList.remove('fa-spin');
-            }
-        }
-
-        async function pushBookingToGoogleSheet(bookingObj) {
-            // 1. Jika berjalan di dalam iframe Google Apps Script
-            if (isRunningInsideGasIframe()) {
-                google.script.run
-                    .withSuccessHandler(() => updateCloudStatusBadge('idle'))
-                    .withFailureHandler(() => updateCloudStatusBadge('error'))
-                    .saveBookingToSheet(bookingObj);
-                return;
-            }
-
-            // 2. Jika berjalan di GitHub Pages / Web luaran dengan URL Webhook
-            if (!googleScriptUrl) return;
-
-            updateCloudStatusBadge('syncing');
-            try {
-                // Menggunakan text/plain bagi mengelakkan isu CORS preflight pada Google Apps Script
-                await fetch(googleScriptUrl, {
-                    method: 'POST',
-                    redirect: 'follow',
-                    headers: {
-                        'Content-Type': 'text/plain;charset=utf-8'
-                    },
-                    body: JSON.stringify({
-                        action: 'addBooking',
-                        booking: bookingObj
-                    })
-                });
-                updateCloudStatusBadge('idle');
-            } catch (err) {
-                console.error('Ralat menghantar ke Google Sheet:', err);
-                updateCloudStatusBadge('error');
-                showToast('Tiket dijana, tetapi gagal dihantar ke Google Sheet.', 'warning');
-            }
-        }
-
-        async function deleteBookingFromGoogleSheet(ticketId) {
-            if (isRunningInsideGasIframe()) {
-                google.script.run.deleteBookingById(ticketId);
-                return;
-            }
-            if (!googleScriptUrl) return;
-            try {
-                await fetch(googleScriptUrl, {
-                    method: 'POST',
-                    redirect: 'follow',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({
-                        action: 'deleteBooking',
-                        ticketId: ticketId
-                    })
-                });
-            } catch (e) {
-                console.error(e);
-            }
-        }
-
-        function toggleAppsScriptGuide() {
-            const box = document.getElementById('appsScriptGuideBox');
-            box.classList.toggle('hidden');
-        }
-
-        function populateAppsScriptTemplate() {
-            const code = [
-                "// ===========================================================",
-                "// KOD GOOGLE APPS SCRIPT (Code.gs) - VIRTUAL CONCERT SMK DPM",
-                "// Salin semua kod ini ke dalam Extensions > Apps Script",
-                "// ===========================================================",
-                "",
-                "const SHEET_NAME = 'Tempahan_Tiket';",
-                "",
-                "function getOrCreateSheet() {",
-                "  const ss = SpreadsheetApp.getActiveSpreadsheet();",
-                "  let sheet = ss.getSheetByName(SHEET_NAME);",
-                "  if (!sheet) {",
-                "    sheet = ss.insertSheet(SHEET_NAME);",
-                "    sheet.appendRow([",
-                "      'ID Tiket', 'Slot ID', 'Sesi', 'Artis', 'Slot Masa',",
-                "      'Pakej', 'Ada Freebies', 'Nama Penonton', 'Kelas/Kategori',",
-                "      'No Telefon', 'Tempat Duduk', 'Bil Lightstick', 'Jumlah Bayaran (RM)', 'Masa Tempahan'",
-                "    ]);",
-                "    sheet.getRange('A1:N1').setFontWeight('bold').setBackground('#ff2a85').setFontColor('#ffffff');",
-                "    sheet.setFrozenRows(1);",
-                "  }",
-                "  return sheet;",
-                "}",
-                "",
-                "// Menyokong kedua-dua GitHub Pages (JSON API) & Google Apps Script Web App (HTML)",
-                "function doGet(e) {",
-                "  if (e && e.parameter && e.parameter.action === 'getBookings') {",
-                "    const data = getAllBookingsFromSheet();",
-                "    return ContentService.createTextOutput(JSON.stringify(data))",
-                "      .setMimeType(ContentService.MimeType.JSON);",
-                "  }",
-                "  // Jika anda membuat fail Index.html di dalam Apps Script:",
-                "  try {",
-                "    return HtmlService.createHtmlOutputFromFile('Index')",
-                "      .setTitle('Virtual Concert Experience - SMK DPM')",
-                "      .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)",
-                "      .addMetaTag('viewport', 'width=device-width, initial-scale=1');",
-                "  } catch (err) {",
-                "    const data = getAllBookingsFromSheet();",
-                "    return ContentService.createTextOutput(JSON.stringify(data))",
-                "      .setMimeType(ContentService.MimeType.JSON);",
-                "  }",
-                "}",
-                "",
-                "// Menerima tempahan baharu atau pembatalan dari GitHub Pages / Web",
-                "function doPost(e) {",
-                "  try {",
-                "    const payload = JSON.parse(e.postData.contents);",
-                "    if (payload.action === 'addBooking' && payload.booking) {",
-                "      saveBookingToSheet(payload.booking);",
-                "      return ContentService.createTextOutput(JSON.stringify({ status: 'success' }))",
-                "        .setMimeType(ContentService.MimeType.JSON);",
-                "    }",
-                "    if (payload.action === 'deleteBooking' && payload.ticketId) {",
-                "      deleteBookingById(payload.ticketId);",
-                "      return ContentService.createTextOutput(JSON.stringify({ status: 'deleted' }))",
-                "        .setMimeType(ContentService.MimeType.JSON);",
-                "    }",
-                "    return ContentService.createTextOutput(JSON.stringify({ status: 'ignored' }))",
-                "      .setMimeType(ContentService.MimeType.JSON);",
-                "  } catch (err) {",
-                "    return ContentService.createTextOutput(JSON.stringify({ status: 'error', message: err.toString() }))",
-                "      .setMimeType(ContentService.MimeType.JSON);",
-                "  }",
-                "}",
-                "",
-                "function saveBookingToSheet(b) {",
-                "  const lock = LockService.getScriptLock();",
-                "  lock.waitLock(10000);",
-                "  try {",
-                "    const sheet = getOrCreateSheet();",
-                "    sheet.appendRow([",
-                "      b.id,",
-                "      b.slotId,",
-                "      b.sessionName,",
-                "      b.artist,",
-                "      b.slotTime,",
-                "      b.packageName,",
-                "      b.hasFreebies ? 'YA' : 'TIDAK',",
-                "      b.name,",
-                "      b.custClass || '-',",
-                "      \"'\" + (b.phone || '-'),",
-                "      Array.isArray(b.seats) ? b.seats.join(',') : b.seats,",
-                "      b.lightsticks,",
-                "      b.totalPaid,",
-                "      b.timestamp",
-                "    ]);",
-                "    return { status: 'ok' };",
-                "  } finally {",
-                "    lock.releaseLock();",
-                "  }",
-                "}",
-                "",
-                "function getAllBookingsFromSheet() {",
-                "  const sheet = getOrCreateSheet();",
-                "  const rows = sheet.getDataRange().getValues();",
-                "  const bookings = [];",
-                "  for (let i = rows.length - 1; i >= 1; i--) {",
-                "    const r = rows[i];",
-                "    if (!r[0]) continue;",
-                "    const seatsArr = String(r[10] || '').split(',').map(s => s.trim()).filter(Boolean);",
-                "    bookings.push({",
-                "      id: String(r[0]),",
-                "      slotId: String(r[1]),",
-                "      sessionName: String(r[2]),",
-                "      artist: String(r[3]),",
-                "      slotTime: String(r[4]),",
-                "      packageName: String(r[5]),",
-                "      hasFreebies: String(r[6]) === 'YA',",
-                "      name: String(r[7]),",
-                "      custClass: String(r[8]),",
-                "      phone: String(r[9]).replace(/^'/, ''),",
-                "      seats: seatsArr,",
-                "      lightsticks: Number(r[11]) || 0,",
-                "      totalPaid: Number(r[12]) || 0,",
-                "      timestamp: String(r[13])",
-                "    });",
-                "  }",
-                "  return { status: 'success', bookings: bookings };",
-                "}",
-                "",
-                "function deleteBookingById(ticketId) {",
-                "  const sheet = getOrCreateSheet();",
-                "  const rows = sheet.getDataRange().getValues();",
-                "  for (let i = rows.length - 1; i >= 1; i--) {",
-                "    if (String(rows[i][0]) === String(ticketId)) {",
-                "      sheet.deleteRow(i + 1);",
-                "      break;",
-                "    }",
-                "  }",
-                "  return { status: 'deleted' };",
-                "}"
-            ].join('\n');
-
-            const area = document.getElementById('appsScriptCodeTextarea');
-            if (area) area.value = code;
-        }
-
-        function copyAppsScriptCode() {
-            const area = document.getElementById('appsScriptCodeTextarea');
-            area.select();
-            document.execCommand('copy');
-            showToast('Kod Code.gs berjaya disalin! Tampal di Google Apps Script anda.', 'success');
-        }
 
         function getActiveSlotObj() {
             return CONCERT_SLOTS.find(s => s.id === activeSlotId) || CONCERT_SLOTS[0];
@@ -1150,7 +633,6 @@
             return occupiedBySlotMap.get(activeSlotId);
         }
 
-        // Helper: Determine seat details based on current artist slot & package tier
         function getSeatMetadata(seatId) {
             const idStr = String(seatId);
             const isStanding = idStr.startsWith('S');
@@ -1171,19 +653,9 @@
             }
 
             const label = isStanding ? `Standing ${idStr}` : `Kerusi ${idStr}`;
-            return {
-                id: idStr,
-                label,
-                isStanding,
-                hasLightstick,
-                price,
-                packageLabel
-            };
+            return { id: idStr, label, isStanding, hasLightstick, price, packageLabel };
         }
 
-        // =====================================================
-        // SESSION & ARTIST SLOT SELECTOR LOGIC
-        // =====================================================
         function switchSessionFilter(sessionKey) {
             activeSessionFilter = sessionKey;
             const tab1 = document.getElementById('tabSesi1');
@@ -1197,7 +669,6 @@
                 tab1.className = 'px-3.5 py-2 rounded-xl text-xs font-extrabold uppercase tracking-wider transition flex items-center gap-1.5 text-gray-300 hover:text-white';
             }
 
-            // Automatically select first slot in that session if current slot is from another session
             const currentSlot = getActiveSlotObj();
             if (currentSlot.sessionKey !== sessionKey) {
                 const firstInSession = CONCERT_SLOTS.find(s => s.sessionKey === sessionKey);
@@ -1220,7 +691,6 @@
                 selectedPackageTier = 'RM5_STANDARD';
             }
 
-            // Update active banners
             document.getElementById('activeSlotSessionBadge').textContent = slotObj.sessionName;
             document.getElementById('activeSlotArtistBadge').textContent = slotObj.artist;
             document.getElementById('activeSlotTimeBadge').innerHTML = `<i class="fa-regular fa-clock mr-1"></i>${slotObj.time}`;
@@ -1257,12 +727,10 @@
                 }`;
 
                 const pricePill = slot.hasFreebiesOption
-                    ? `<span class="text-[10px] font-extrabold bg-pink-500/20 text-pink-300 border border-pink-500/40 px-2 py-0.5 rounded-full">RM${pricing.freebies} / RM${pricing.standard}</span>`
+                    ? `<span class="text-[10px] font-extrabold bg-pink-500/20 text-pink-300 border border-pink-500/40 px-2 py-0.5 rounded-full">RM${pricing.freebies}/RM${pricing.standard}</span>`
                     : `<span class="text-[10px] font-extrabold bg-yellow-400/20 text-yellow-300 border border-yellow-400/40 px-2 py-0.5 rounded-full">RM${pricing.standard}</span>`;
 
-                const newBadge = slot.isNew
-                    ? `<span class="ml-1 bg-pink-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase">NEW</span>`
-                    : '';
+                const newBadge = slot.isNew ? `<span class="ml-1 bg-pink-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase">NEW</span>` : '';
 
                 btn.innerHTML = `
                     <div>
@@ -1277,7 +745,7 @@
                     </div>
                     <div class="flex items-center justify-between text-[10px] text-gray-400 mt-2 pt-1.5 border-t border-white/10">
                         <span>Kekosongan: <strong class="${remaining > 0 ? 'text-emerald-400' : 'text-red-400'}">${remaining}/65</strong></span>
-                        ${slot.hasFreebiesOption ? '<span class="text-pink-300 font-semibold"><i class="fa-solid fa-gift mr-0.5"></i>Ada Freebies</span>' : '<span>Sekali Masuk</span>'}
+                        ${slot.hasFreebiesOption ? '<span class="text-pink-300 font-semibold"><i class="fa-solid fa-gift mr-0.5"></i>Ada Freebies</span>' : '<span>RM5 Sekali Masuk</span>'}
                     </div>
                 `;
                 grid.appendChild(btn);
@@ -1303,9 +771,7 @@
                     </label>
                     <div class="grid grid-cols-2 gap-2.5">
                         <button type="button" onclick="setPackageTier('RM7_FREEBIES')" class="p-2.5 rounded-2xl border-2 text-left transition ${
-                            isRm7
-                                ? 'bg-pink-600/25 border-pink-400 shadow-[0_0_12px_rgba(255,42,133,0.3)]'
-                                : 'bg-zinc-800/70 border-zinc-700 opacity-75 hover:opacity-100'
+                            isRm7 ? 'bg-pink-600/25 border-pink-400 shadow-[0_0_12px_rgba(255,42,133,0.3)]' : 'bg-zinc-800/70 border-zinc-700 opacity-75 hover:opacity-100'
                         }">
                             <div class="flex items-center justify-between">
                                 <span class="text-sm font-black text-white">RM ${pricing.freebies}</span>
@@ -1315,9 +781,7 @@
                         </button>
 
                         <button type="button" onclick="setPackageTier('RM5_STANDARD')" class="p-2.5 rounded-2xl border-2 text-left transition ${
-                            !isRm7
-                                ? 'bg-cyan-600/25 border-cyan-400 shadow-[0_0_12px_rgba(0,240,255,0.3)]'
-                                : 'bg-zinc-800/70 border-zinc-700 opacity-75 hover:opacity-100'
+                            !isRm7 ? 'bg-cyan-600/25 border-cyan-400 shadow-[0_0_12px_rgba(0,240,255,0.3)]' : 'bg-zinc-800/70 border-zinc-700 opacity-75 hover:opacity-100'
                         }">
                             <div class="flex items-center justify-between">
                                 <span class="text-sm font-black text-white">RM ${pricing.standard}</span>
@@ -1332,7 +796,7 @@
                     <div class="bg-yellow-400/10 border border-yellow-400/40 rounded-2xl p-3 flex items-center justify-between">
                         <div>
                             <span class="text-[10px] font-extrabold uppercase tracking-wider text-yellow-300 block">Harga Tiket Seragam (Sekali Masuk)</span>
-                            <span class="text-xs text-gray-300">Semua Kerusi (1-50) &amp; Standing Zone</span>
+                            <span class="text-xs text-gray-300">Semua Kerusi &amp; Standing Zone</span>
                         </div>
                         <div class="text-xl font-black text-yellow-300">RM ${pricing.standard}</div>
                     </div>
@@ -1351,41 +815,29 @@
                 item.className = 'bg-black/40 border border-white/10 rounded-xl p-2.5 flex flex-col gap-1';
                 item.innerHTML = `
                     <div class="flex items-center justify-between gap-2">
-                        <span class="bg-gradient-to-r ${slot.badgeColor} text-white font-extrabold px-2.5 py-0.5 rounded-full text-[11px]">${slot.time}</span>
+                        <span class="bg-zinc-800 text-cyan-300 font-extrabold px-2 py-0.5 rounded text-[11px]">${slot.time}</span>
                         <div class="flex items-center gap-1.5">
                             <strong class="text-white font-black text-sm uppercase">${slot.artist}</strong>
-                            ${slot.hasFreebiesOption ? `<span class="text-[10px] bg-pink-500/20 border border-pink-500/40 text-pink-300 px-1.5 py-0.5 rounded font-bold">RM${pricing.freebies}/RM${pricing.standard}</span>` : `<span class="text-[10px] bg-yellow-400/20 text-yellow-300 px-1.5 py-0.5 rounded font-bold">RM${pricing.standard}</span>`}
+                            ${slot.hasFreebiesOption ? `<span class="text-[10px] bg-pink-500/20 text-pink-300 px-1 rounded font-bold">RM${pricing.freebies}/RM${pricing.standard}</span>` : `<span class="text-[10px] bg-yellow-400/20 text-yellow-300 px-1 rounded font-bold">RM${pricing.standard}</span>`}
                         </div>
                         <button onclick="selectArtistSlot('${slot.id}'); toggleScheduleModal();" class="bg-white/10 hover:bg-white/20 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg transition">
-                            Pilih Slot
+                            Pilih
                         </button>
                     </div>
-                    <div class="text-[10px] text-gray-400 pl-2 border-l-2 border-zinc-700 mt-0.5">${slot.prepAfter}</div>
+                    <div class="text-[10px] text-gray-400">${slot.prepAfter}</div>
                 `;
 
-                if (slot.sessionKey === 'SESI_1') {
-                    s1Container.appendChild(item);
-                } else {
-                    s2Container.appendChild(item);
-                }
+                if (slot.sessionKey === 'SESI_1') s1Container.appendChild(item);
+                else s2Container.appendChild(item);
             });
         }
 
         function toggleScheduleModal() {
             const modal = document.getElementById('scheduleModal');
-            if (modal.classList.contains('hidden')) {
-                renderScheduleModalContent();
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-            } else {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
         }
 
-        // =====================================================
-        // RENDER SEAT MAP & STANDING ZONE
-        // =====================================================
         function renderVenueMap() {
             const leftContainer = document.getElementById('leftWingContainer');
             const rightContainer = document.getElementById('rightWingContainer');
@@ -1396,27 +848,20 @@
             rightContainer.innerHTML = '';
             standingContainer.innerHTML = '';
 
-            // Render Left Wing
             LEFT_WING_ROWS.forEach(row => {
                 const rowDiv = document.createElement('div');
                 rowDiv.className = 'flex items-center gap-1.5 sm:gap-2.5';
-                row.forEach(seatNum => {
-                    rowDiv.appendChild(createChairElement(String(seatNum), occupiedSeatsMap));
-                });
+                row.forEach(seatNum => rowDiv.appendChild(createChairElement(String(seatNum), occupiedSeatsMap)));
                 leftContainer.appendChild(rowDiv);
             });
 
-            // Render Right Wing
             RIGHT_WING_ROWS.forEach(row => {
                 const rowDiv = document.createElement('div');
                 rowDiv.className = 'flex items-center gap-1.5 sm:gap-2.5';
-                row.forEach(seatNum => {
-                    rowDiv.appendChild(createChairElement(String(seatNum), occupiedSeatsMap));
-                });
+                row.forEach(seatNum => rowDiv.appendChild(createChairElement(String(seatNum), occupiedSeatsMap)));
                 rightContainer.appendChild(rowDiv);
             });
 
-            // Render Standing Zone (15 silhouettes)
             let availableStanding = 0;
             STANDING_SLOTS.forEach(slotId => {
                 const isBooked = occupiedSeatsMap.has(slotId);
@@ -1425,13 +870,9 @@
             });
 
             document.getElementById('standingAvailableBadge').textContent = `${availableStanding} / 15`;
-
-            // Update header availability counter for current slot
-            const totalAvailable = 65 - occupiedSeatsMap.size;
-            document.getElementById('headerAvailableCount').textContent = `${totalAvailable}/65`;
+            document.getElementById('headerAvailableCount').textContent = `${65 - occupiedSeatsMap.size}/65`;
         }
 
-        // Creates visual Chair matching poster's white bucket seat icon
         function createChairElement(seatId, occupiedSeatsMap) {
             const meta = getSeatMetadata(seatId);
             const isBooked = occupiedSeatsMap.has(seatId);
@@ -1442,30 +883,21 @@
             btn.disabled = isBooked;
             btn.onclick = () => toggleSeatSelection(seatId);
 
-            // Base styling
             let bgClass = 'bg-white text-zinc-900 border-zinc-300';
             let backrestClass = 'bg-zinc-300';
 
             if (isBooked) {
-                const booking = occupiedSeatsMap.get(seatId);
                 bgClass = 'bg-zinc-800 text-zinc-500 border-zinc-700 cursor-not-allowed opacity-55';
                 backrestClass = 'bg-zinc-700';
-                btn.title = `${meta.label} - Ditempah oleh ${booking.name}`;
             } else if (isSelected) {
                 bgClass = 'bg-pink-500 text-white border-white shadow-[0_0_14px_#ff2a85] scale-105';
                 backrestClass = 'bg-pink-200';
-                btn.title = `${meta.label} (Dipilih) - RM ${meta.price}`;
             } else if (!meta.hasLightstick) {
-                // Seats 49 & 50 special highlight
                 bgClass = 'bg-amber-100 text-amber-950 border-amber-400';
                 backrestClass = 'bg-amber-400';
-                btn.title = `${meta.label} (Tiada Lightstick) - RM ${meta.price}`;
-            } else {
-                btn.title = `${meta.label} (Termasuk Lightstick) - RM ${meta.price}`;
             }
 
             btn.className = `seat-btn w-10 h-11 sm:w-11 sm:h-12 rounded-t-lg rounded-b-md border-2 flex flex-col items-center justify-between p-0.5 shadow-md ${bgClass}`;
-
             btn.innerHTML = `
                 <div class="flex items-center justify-between w-full px-0.5">
                     <span class="w-1 h-2.5 rounded-full bg-current opacity-30"></span>
@@ -1473,13 +905,11 @@
                     <span class="w-1 h-2.5 rounded-full bg-current opacity-30"></span>
                 </div>
                 <div class="w-4/5 h-1.5 rounded-full ${backrestClass} mb-0.5"></div>
-                ${!meta.hasLightstick && !isBooked ? '<span class="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 rounded-full bg-amber-500 text-black text-[8px] font-black flex items-center justify-center shadow" title="Tiada Lightstick">!</span>' : ''}
+                ${!meta.hasLightstick && !isBooked ? '<span class="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 rounded-full bg-amber-500 text-black text-[8px] font-black flex items-center justify-center shadow">!</span>' : ''}
             `;
-
             return btn;
         }
 
-        // Creates visual Standing Person Silhouette matching bottom of poster
         function createStandingElement(slotId, occupiedSeatsMap) {
             const meta = getSeatMetadata(slotId);
             const isBooked = occupiedSeatsMap.has(slotId);
@@ -1492,14 +922,9 @@
 
             let styleClass = 'bg-red-950/50 border-red-800/70 text-rose-200/80 hover:border-cyan-400 hover:text-cyan-300';
             if (isBooked) {
-                const booking = occupiedSeatsMap.get(slotId);
                 styleClass = 'bg-zinc-900 border-zinc-800 text-zinc-600 cursor-not-allowed opacity-50';
-                btn.title = `Standing ${slotId} - Ditempah oleh ${booking.name}`;
             } else if (isSelected) {
                 styleClass = 'bg-cyan-500/30 border-cyan-300 text-cyan-200 shadow-[0_0_12px_rgba(0,240,255,0.5)] scale-105';
-                btn.title = `Standing ${slotId} (Dipilih - Tiada Lightstick) - RM ${meta.price}`;
-            } else {
-                btn.title = `Standing ${slotId} (Kosong - Tiada Lightstick) - RM ${meta.price}`;
             }
 
             btn.className = `seat-btn rounded-xl border py-2 px-1 flex flex-col items-center justify-center transition ${styleClass}`;
@@ -1510,18 +935,12 @@
             return btn;
         }
 
-        // =====================================================
-        // SELECTION & CART LOGIC
-        // =====================================================
         function toggleSeatSelection(seatId) {
             const occupiedSeatsMap = getCurrentOccupiedMap();
             if (occupiedSeatsMap.has(seatId)) return;
 
-            if (selectedSeats.has(seatId)) {
-                selectedSeats.delete(seatId);
-            } else {
-                selectedSeats.add(seatId);
-            }
+            if (selectedSeats.has(seatId)) selectedSeats.delete(seatId);
+            else selectedSeats.add(seatId);
 
             renderVenueMap();
             updateSelectionSummary();
@@ -1567,37 +986,21 @@
             selectedArr.forEach(seatId => {
                 const meta = getSeatMetadata(seatId);
                 totalCost += meta.price;
-                if (meta.hasLightstick) {
-                    lightstickCount++;
-                } else {
-                    noLsLabels.push(meta.label);
-                }
+                if (meta.hasLightstick) lightstickCount++;
+                else noLsLabels.push(meta.label);
 
                 const badge = document.createElement('div');
-                badge.className = `flex items-center gap-1.5 px-2.5 py-1 rounded-lg font-bold text-xs border ${
-                    meta.hasLightstick 
-                        ? 'bg-pink-500/20 border-pink-500/50 text-pink-200' 
-                        : 'bg-amber-500/20 border-amber-400/50 text-amber-200'
-                }`;
-                badge.innerHTML = `
-                    <span>${meta.label}</span>
-                    <span class="text-[10px] opacity-75">(RM${meta.price})</span>
-                    <button type="button" onclick="toggleSeatSelection('${seatId}')" class="hover:text-white ml-1">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                `;
+                badge.className = `flex items-center gap-1.5 px-2.5 py-1 rounded-lg font-bold text-xs border ${meta.hasLightstick ? 'bg-pink-500/20 border-pink-500/50 text-pink-200' : 'bg-amber-500/20 border-amber-400/50 text-amber-200'}`;
+                badge.innerHTML = `<span>${meta.label}</span> <span class="text-[10px] opacity-75">(RM${meta.price})</span> <button type="button" onclick="toggleSeatSelection('${seatId}')"><i class="fa-solid fa-xmark"></i></button>`;
                 listEl.appendChild(badge);
             });
 
             const slotObj = getActiveSlotObj();
-            const freebiesInfo = (slotObj.hasFreebiesOption && selectedPackageTier === 'RM7_FREEBIES')
-                ? ` • ${selectedArr.length}x Freebies`
-                : '';
+            const freebiesInfo = (slotObj.hasFreebiesOption && selectedPackageTier === 'RM7_FREEBIES') ? ` • ${selectedArr.length}x Freebies` : '';
 
             totalEl.textContent = `RM ${totalCost.toFixed(2)}`;
             lsCounterEl.textContent = `Pinjaman ${lightstickCount} Lightstick${freebiesInfo}`;
 
-            // Show or hide warning for Seats 49, 50 & Standing Zone
             if (noLsLabels.length > 0) {
                 alertBox.classList.remove('hidden');
                 alertItemsText.textContent = noLsLabels.join(', ');
@@ -1606,19 +1009,13 @@
             }
         }
 
-        // =====================================================
-        // BOOKING SUBMISSION & E-TICKET GENERATION
-        // =====================================================
         function handleBookingSubmit(e) {
             e.preventDefault();
             if (selectedSeats.size === 0) return;
 
             const name = document.getElementById('custName').value.trim();
-            const custClass = document.getElementById('custClass').value.trim() || '-';
-            const phone = document.getElementById('custPhone').value.trim() || '-';
-
             if (!name) {
-                showToast('Sila masukkan nama penonton.', 'warning');
+                showToast('Sila masukkan nama penuh penonton.', 'warning');
                 return;
             }
 
@@ -1630,25 +1027,17 @@
             let hasNoLsItems = false;
 
             const hasFreebies = slotObj.hasFreebiesOption && selectedPackageTier === 'RM7_FREEBIES';
-            const packageName = slotObj.hasFreebiesOption
-                ? (hasFreebies ? `RM${pricing.freebies} (Got Freebies)` : `RM${pricing.standard} (No Freebies)`)
-                : `RM${pricing.standard} (Sekali Masuk)`;
+            const packageName = slotObj.hasFreebiesOption ? (hasFreebies ? `RM${pricing.freebies} (Got Freebies)` : `RM${pricing.standard} (No Freebies)`) : `RM${pricing.standard} (Sekali Masuk)`;
 
             seatsArray.forEach(id => {
                 const meta = getSeatMetadata(id);
                 totalPaid += meta.price;
-                if (meta.hasLightstick) {
-                    lightsticks++;
-                } else {
-                    hasNoLsItems = true;
-                }
+                if (meta.hasLightstick) lightsticks++;
+                else hasNoLsItems = true;
             });
 
             const ticketId = 'VCE-' + Math.floor(1000 + Math.random() * 9000);
-            const timestamp = new Date().toLocaleString('ms-MY', {
-                day: '2-digit', month: 'short', year: 'numeric',
-                hour: '2-digit', minute: '2-digit'
-            });
+            const timestamp = new Date().toLocaleString('ms-MY', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
             const newBooking = {
                 id: ticketId,
@@ -1659,8 +1048,6 @@
                 packageName,
                 hasFreebies,
                 name,
-                custClass,
-                phone,
                 seats: seatsArray,
                 totalPaid,
                 lightsticks,
@@ -1669,14 +1056,8 @@
             };
 
             bookings.unshift(newBooking);
-            seatsArray.forEach(seatId => {
-                occupiedSeatsMap.set(seatId, newBooking);
-            });
+            seatsArray.forEach(seatId => occupiedSeatsMap.set(seatId, newBooking));
 
-            // Hantar terus ke Google Sheet (jika disambungkan)
-            pushBookingToGoogleSheet(newBooking);
-
-            // Clear current selection and form
             selectedSeats.clear();
             document.getElementById('bookingForm').reset();
 
@@ -1685,7 +1066,6 @@
             updateSelectionSummary();
             updateAdminDashboard();
 
-            // Show E-Ticket Modal
             openTicketModal(newBooking);
             showToast(`Tempahan ${ticketId} (${slotObj.artist}) disahkan!`, 'success');
         }
@@ -1698,12 +1078,9 @@
             document.getElementById('modalPackageBadge').textContent = `E-TIKET • ${booking.packageName}`;
 
             document.getElementById('modalCustName').textContent = booking.name;
-            document.getElementById('modalCustClass').textContent = booking.custClass;
-            document.getElementById('modalCustPhone').textContent = booking.phone;
             document.getElementById('modalTotalPaid').textContent = `RM ${booking.totalPaid.toFixed(2)}`;
-            document.getElementById('modalTimestamp').textContent = `Masa Tempahan: ${booking.timestamp}`;
+            document.getElementById('modalTimestamp').textContent = `Masa: ${booking.timestamp}`;
 
-            // Render Seat Badges
             const badgesContainer = document.getElementById('modalSeatsBadges');
             badgesContainer.innerHTML = '';
             booking.seats.forEach(seatId => {
@@ -1711,65 +1088,30 @@
                 const hasLightstick = !NO_LIGHTSTICK_SEATS.has(String(seatId));
                 const label = isStanding ? `Standing ${seatId}` : `Kerusi ${seatId}`;
                 const span = document.createElement('span');
-                span.className = `px-2.5 py-1 rounded-lg text-xs font-extrabold border ${
-                    hasLightstick
-                        ? 'bg-pink-600/30 border-pink-400 text-white'
-                        : 'bg-amber-500/30 border-amber-400 text-amber-200'
-                }`;
+                span.className = `px-2.5 py-1 rounded-lg text-xs font-extrabold border ${hasLightstick ? 'bg-pink-600/30 border-pink-400 text-white' : 'bg-amber-500/30 border-amber-400 text-amber-200'}`;
                 span.textContent = label;
                 badgesContainer.appendChild(span);
             });
 
-            // Lightstick & Freebies Status Box
             const lsBox = document.getElementById('modalLightstickStatus');
-            const freebiesNote = booking.hasFreebies
-                ? `<div class="mt-1 text-pink-300 font-bold"><i class="fa-solid fa-gift mr-1"></i>Termasuk Tuntutan Freebies (${booking.seats.length} Set)!</div>`
-                : '';
+            const freebiesNote = booking.hasFreebies ? `<div class="mt-1 text-pink-300 font-bold"><i class="fa-solid fa-gift mr-1"></i>Termasuk Tuntutan Freebies (${booking.seats.length} Set)!</div>` : '';
 
             if (booking.lightsticks > 0 && !booking.hasNoLsItems) {
                 lsBox.className = 'rounded-xl p-3 text-xs mb-4 border bg-emerald-500/15 border-emerald-400/50 text-emerald-200 flex items-center gap-2.5';
-                lsBox.innerHTML = `
-                    <i class="fa-solid fa-wand-magic-sparkles text-emerald-400 text-lg"></i>
-                    <div>
-                        <strong class="block text-emerald-300">Layak Menerima ${booking.lightsticks}x Lightstick!</strong>
-                        Sila tuntut di kaunter pendaftaran sebelum slot ${booking.artist} bermula.
-                        ${freebiesNote}
-                    </div>
-                `;
-            } else if (booking.lightsticks > 0 && booking.hasNoLsItems) {
-                lsBox.className = 'rounded-xl p-3 text-xs mb-4 border bg-amber-500/15 border-amber-400/50 text-amber-200 flex items-center gap-2.5';
-                lsBox.innerHTML = `
-                    <i class="fa-solid fa-circle-exclamation text-amber-400 text-lg"></i>
-                    <div>
-                        <strong class="block text-amber-300">Layak ${booking.lightsticks}x Lightstick Sahaja</strong>
-                        Makluman: Kerusi 49, 50 &amp; Zon Berdiri tidak disertakan dengan Lightstick.
-                        ${freebiesNote}
-                    </div>
-                `;
+                lsBox.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles text-emerald-400 text-lg"></i><div><strong class="block text-emerald-300">Layak Menerima ${booking.lightsticks}x Lightstick!</strong>Sila tuntut di kaunter pendaftaran.${freebiesNote}</div>`;
             } else {
-                lsBox.className = 'rounded-xl p-3 text-xs mb-4 border bg-rose-500/15 border-rose-400/50 text-rose-200 flex items-center gap-2.5';
-                lsBox.innerHTML = `
-                    <i class="fa-solid fa-ban text-rose-400 text-lg"></i>
-                    <div>
-                        <strong class="block text-rose-300">Tiada Lightstick Disediakan</strong>
-                        Tempat duduk Pilihan (Kerusi 49, 50 / Standing Zone) tidak termasuk Lightstick.
-                        ${freebiesNote}
-                    </div>
-                `;
+                lsBox.className = 'rounded-xl p-3 text-xs mb-4 border bg-amber-500/15 border-amber-400/50 text-amber-200 flex items-center gap-2.5';
+                lsBox.innerHTML = `<i class="fa-solid fa-circle-exclamation text-amber-400 text-lg"></i><div><strong class="block text-amber-300">Status Tempat Duduk / Zon</strong>Sebahagian atau semua pilihan tidak termasuk Lightstick.${freebiesNote}</div>`;
             }
 
-            // Generate visual matrix QR SVG from ticket ID
             generateQrSvg(booking.id);
-
-            const modal = document.getElementById('ticketModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            document.getElementById('ticketModal').classList.remove('hidden');
+            document.getElementById('ticketModal').classList.add('flex');
         }
 
         function closeTicketModal() {
-            const modal = document.getElementById('ticketModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
+            document.getElementById('ticketModal').classList.add('hidden');
+            document.getElementById('ticketModal').classList.remove('flex');
         }
 
         function generateQrSvg(seedString) {
@@ -1777,11 +1119,8 @@
             svg.innerHTML = '';
             const size = 10;
             const cellSize = 100 / size;
-
             let hash = 0;
-            for (let i = 0; i < seedString.length; i++) {
-                hash = seedString.charCodeAt(i) + ((hash << 5) - hash);
-            }
+            for (let i = 0; i < seedString.length; i++) hash = seedString.charCodeAt(i) + ((hash << 5) - hash);
 
             for (let r = 0; r < size; r++) {
                 for (let c = 0; c < size; c++) {
@@ -1800,45 +1139,23 @@
             }
         }
 
-        // =====================================================
-        // SEARCH EXISTING TICKET
-        // =====================================================
         function searchTicket() {
             const query = document.getElementById('searchTicketInput').value.trim().toLowerCase();
             const resultBox = document.getElementById('searchResultBox');
             resultBox.innerHTML = '';
 
-            if (!query) {
-                showToast('Masukkan nama atau ID tiket untuk carian.', 'warning');
-                return;
-            }
+            if (!query) return;
 
-            const matches = bookings.filter(b =>
-                b.id.toLowerCase().includes(query) ||
-                b.name.toLowerCase().includes(query) ||
-                b.artist.toLowerCase().includes(query) ||
-                b.seats.some(s => s.toLowerCase() === query)
-            );
-
+            const matches = bookings.filter(b => b.id.toLowerCase().includes(query) || b.name.toLowerCase().includes(query) || b.artist.toLowerCase().includes(query));
             if (matches.length === 0) {
-                resultBox.innerHTML = `<div class="text-gray-400 italic py-1">Tiada rekod ditemui untuk "${query}".</div>`;
+                resultBox.innerHTML = `<div class="text-gray-400 italic py-1">Tiada rekod ditemui.</div>`;
                 return;
             }
 
             matches.forEach(b => {
                 const div = document.createElement('div');
                 div.className = 'bg-zinc-800/90 border border-zinc-700 rounded-xl p-2.5 flex items-center justify-between gap-2';
-                div.innerHTML = `
-                    <div>
-                        <span class="font-mono text-yellow-300 font-bold">#${b.id}</span>
-                        <strong class="text-white ml-1">${b.name}</strong>
-                        <div class="text-[10px] text-cyan-300 font-bold">${b.artist} (${b.slotTime})</div>
-                        <div class="text-[10px] text-gray-400">Kerusi: ${b.seats.join(', ')}</div>
-                    </div>
-                    <button onclick="openTicketById('${b.id}')" class="bg-pink-600 hover:bg-pink-500 text-white px-2.5 py-1 rounded-lg font-bold text-[10px] shrink-0">
-                        Paparkan Tiket
-                    </button>
-                `;
+                div.innerHTML = `<div><span class="font-mono text-yellow-300 font-bold">#${b.id}</span> <strong class="text-white ml-1">${b.name}</strong><div class="text-[10px] text-cyan-300">${b.artist} (${b.slotTime})</div></div><button onclick="openTicketById('${b.id}')" class="bg-pink-600 text-white px-2.5 py-1 rounded-lg font-bold text-[10px]">Papar</button>`;
                 resultBox.appendChild(div);
             });
         }
@@ -1848,57 +1165,22 @@
             if (found) openTicketModal(found);
         }
 
-        // =====================================================
-        // ADMIN / URUSETIA PANEL FUNCTIONS
-        // =====================================================
         function toggleAdminModal() {
             const modal = document.getElementById('adminModal');
-            if (modal.classList.contains('hidden')) {
-                document.getElementById('inputPriceStandard').value = pricing.standard;
-                document.getElementById('inputPriceFreebies').value = pricing.freebies;
-                updateAdminDashboard();
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-            } else {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
-        }
-
-        function savePriceSettings() {
-            const std = parseFloat(document.getElementById('inputPriceStandard').value);
-            const freeb = parseFloat(document.getElementById('inputPriceFreebies').value);
-
-            if (isNaN(std) || isNaN(freeb) || std < 0 || freeb < 0) {
-                showToast('Sila masukkan nilai harga yang sah.', 'warning');
-                return;
-            }
-
-            pricing.standard = std;
-            pricing.freebies = freeb;
-
-            renderSlotSelector();
-            renderTierSelectionUI();
-            renderVenueMap();
-            updateSelectionSummary();
-            showToast('Harga tiket berjaya dikemaskini!', 'success');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+            if (!modal.classList.contains('hidden')) updateAdminDashboard();
         }
 
         function updateAdminDashboard() {
             document.getElementById('totalBookingsBadge').textContent = `${bookings.length} Tempahan`;
-
-            let totalRev = 0;
-            let totalTicketsSold = 0;
-            let totalFreebiesSold = 0;
-            let totalLightsticks = 0;
+            let totalRev = 0, totalTicketsSold = 0, totalFreebiesSold = 0, totalLightsticks = 0;
 
             bookings.forEach(b => {
                 totalRev += b.totalPaid;
                 totalLightsticks += b.lightsticks;
                 totalTicketsSold += b.seats.length;
-                if (b.hasFreebies) {
-                    totalFreebiesSold += b.seats.length;
-                }
+                if (b.hasFreebies) totalFreebiesSold += b.seats.length;
             });
 
             document.getElementById('adminTotalRevenue').textContent = `RM ${totalRev.toFixed(2)}`;
@@ -1910,11 +1192,7 @@
             tbody.innerHTML = '';
 
             if (bookings.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="7" class="py-6 text-center text-gray-500 italic">Belum ada tempahan direkodkan.</td>
-                    </tr>
-                `;
+                tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-gray-500 italic">Belum ada tempahan direkodkan.</td></tr>`;
                 return;
             }
 
@@ -1923,31 +1201,14 @@
                 tr.className = 'hover:bg-zinc-800/40';
                 tr.innerHTML = `
                     <td class="py-2.5 px-3 font-mono font-bold text-yellow-300">#${b.id}</td>
-                    <td class="py-2.5 px-3">
-                        <div class="font-black text-cyan-300">${b.artist}</div>
-                        <div class="text-[10px] text-gray-400">${b.slotTime}</div>
-                    </td>
-                    <td class="py-2.5 px-3">
-                        <div class="font-bold text-white">${b.name}</div>
-                        <div class="text-[10px] text-gray-400">${b.custClass} &bull; ${b.phone}</div>
-                    </td>
-                    <td class="py-2.5 px-3">
-                        <span class="font-bold text-pink-300">${b.seats.join(', ')}</span>
-                    </td>
-                    <td class="py-2.5 px-3">
-                        <div class="text-[10px] font-bold text-white mb-0.5">${b.packageName}</div>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-bold ${b.lightsticks > 0 ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300'}">
-                            LS: ${b.lightsticks} Unit
-                        </span>
-                    </td>
+                    <td class="py-2.5 px-3"><div class="font-black text-cyan-300">${b.artist}</div><div class="text-[10px] text-gray-400">${b.slotTime}</div></td>
+                    <td class="py-2.5 px-3"><div class="font-bold text-white">${b.name}</div></td>
+                    <td class="py-2.5 px-3"><span class="font-bold text-pink-300">${b.seats.join(', ')}</span></td>
+                    <td class="py-2.5 px-3"><div class="text-[10px] font-bold text-white">${b.packageName}</div></td>
                     <td class="py-2.5 px-3 font-bold text-emerald-400">RM ${b.totalPaid.toFixed(2)}</td>
                     <td class="py-2.5 px-3 text-right space-x-1">
-                        <button onclick="openTicketById('${b.id}')" class="bg-zinc-700 hover:bg-zinc-600 text-white px-2 py-1 rounded text-[10px]" title="Lihat Tiket">
-                            <i class="fa-solid fa-eye"></i>
-                        </button>
-                        <button onclick="cancelBooking('${b.id}')" class="bg-red-900/60 hover:bg-red-600 text-red-200 px-2 py-1 rounded text-[10px]" title="Batalkan Tempahan">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
+                        <button onclick="openTicketById('${b.id}')" class="bg-zinc-700 hover:bg-zinc-600 text-white px-2 py-1 rounded text-[10px]"><i class="fa-solid fa-eye"></i></button>
+                        <button onclick="cancelBooking('${b.id}')" class="bg-red-900/60 hover:bg-red-600 text-red-200 px-2 py-1 rounded text-[10px]"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 `;
                 tbody.appendChild(tr);
@@ -1957,27 +1218,18 @@
         function cancelBooking(ticketId) {
             const idx = bookings.findIndex(b => b.id === ticketId);
             if (idx === -1) return;
-
             const removed = bookings[idx];
             const slotMap = occupiedBySlotMap.get(removed.slotId);
-            if (slotMap) {
-                removed.seats.forEach(s => slotMap.delete(s));
-            }
+            if (slotMap) removed.seats.forEach(s => slotMap.delete(s));
             bookings.splice(idx, 1);
-
-            deleteBookingFromGoogleSheet(ticketId);
-
             renderSlotSelector();
             renderVenueMap();
             updateAdminDashboard();
-            showToast(`Tempahan #${ticketId} telah dibatalkan.`, 'warning');
+            showToast(`Tempahan #${ticketId} dibatalkan.`, 'warning');
         }
 
         function resetAllDataConfirm() {
-            if (bookings.length === 0) {
-                showToast('Tiada data tempahan untuk dipadamkan.', 'warning');
-                return;
-            }
+            if (bookings.length === 0) return;
             bookings = [];
             CONCERT_SLOTS.forEach(slot => occupiedBySlotMap.set(slot.id, new Map()));
             selectedSeats.clear();
@@ -1985,44 +1237,26 @@
             renderVenueMap();
             updateSelectionSummary();
             updateAdminDashboard();
-            showToast('Semua rekod tempahan telah dikosongkan.', 'warning');
+            showToast('Semua rekod dikosongkan.', 'warning');
         }
 
         function exportBookingsCSV() {
             if (bookings.length === 0) {
-                showToast('Tiada data tempahan untuk dimuat turun.', 'warning');
+                showToast('Tiada data untuk dimuat turun.', 'warning');
                 return;
             }
-
-            const headers = ['ID Tiket', 'Sesi', 'Artis', 'Slot Masa', 'Pakej', 'Nama Penonton', 'Kelas/Kategori', 'No Telefon', 'Tempat Duduk', 'Bil Lightstick', 'Jumlah Bayaran (RM)', 'Masa Tempahan'];
-            const rows = bookings.map(b => [
-                b.id,
-                `"${b.sessionName}"`,
-                `"${b.artist}"`,
-                `"${b.slotTime}"`,
-                `"${b.packageName}"`,
-                `"${b.name.replace(/"/g, '""')}"`,
-                `"${b.custClass.replace(/"/g, '""')}"`,
-                `"${b.phone}"`,
-                `"${b.seats.join('; ')}"`,
-                b.lightsticks,
-                b.totalPaid.toFixed(2),
-                `"${b.timestamp}"`
-            ]);
-
+            const headers = ['ID Tiket', 'Sesi', 'Artis', 'Slot Masa', 'Pakej', 'Nama Penonton', 'Kerusi', 'Lightstick', 'Jumlah (RM)', 'Masa'];
+            const rows = bookings.map(b => [b.id, `"${b.sessionName}"`, `"${b.artist}"`, `"${b.slotTime}"`, `"${b.packageName}"`, `"${b.name}"`, `"${b.seats.join('; ')}"`, b.lightsticks, b.totalPaid.toFixed(2), `"${b.timestamp}"`]);
             const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement('a');
             link.setAttribute('href', encodedUri);
-            link.setAttribute('download', 'Senarai_Tiket_Virtual_Concert.csv');
+            link.setAttribute('download', 'Senarai_Tiket_Konsert.csv');
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         }
 
-        // =====================================================
-        // TOAST NOTIFICATION HELPER
-        // =====================================================
         let toastTimeout;
         function showToast(message, type = 'info') {
             const toast = document.getElementById('toastNotice');
@@ -2030,17 +1264,12 @@
             const iconEl = document.getElementById('toastIcon');
 
             msgEl.textContent = message;
-            if (type === 'success') {
-                iconEl.className = 'fa-solid fa-circle-check text-emerald-400 text-base';
-            } else if (type === 'warning') {
-                iconEl.className = 'fa-solid fa-triangle-exclamation text-amber-400 text-base';
-            } else {
-                iconEl.className = 'fa-solid fa-circle-info text-pink-400 text-base';
-            }
+            if (type === 'success') iconEl.className = 'fa-solid fa-circle-check text-emerald-400 text-base';
+            else if (type === 'warning') iconEl.className = 'fa-solid fa-triangle-exclamation text-amber-400 text-base';
+            else iconEl.className = 'fa-solid fa-circle-info text-pink-400 text-base';
 
             toast.classList.remove('hidden');
             toast.classList.add('flex');
-
             clearTimeout(toastTimeout);
             toastTimeout = setTimeout(() => {
                 toast.classList.add('hidden');
